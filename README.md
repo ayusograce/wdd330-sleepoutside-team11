@@ -1,7 +1,7 @@
 # BYU-Pathway Worldwide Online
 ## WDD 330 - Web Frontend Development II
 
-## Netlify link: sleepout-team11.netlify.app
+### Netlify link: sleepout-team11.netlify.app
 
 ### ⛺ SleepOutside Starter Code
 
