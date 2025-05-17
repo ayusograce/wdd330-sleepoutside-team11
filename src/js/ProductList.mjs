@@ -9,9 +9,11 @@ function productCardTemplate(product) {
         <h3>${product.Name}</h3>
         <p class="product-card__price">$${product.FinalPrice}</p>
       </a>
+      <a class="view-details-btn" href="product_pages/index.html?product=${product.Id}">View Details</a>
     </li>
-    `;
+  `;
 }
+
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
