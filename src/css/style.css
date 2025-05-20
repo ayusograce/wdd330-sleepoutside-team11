@@ -125,12 +125,27 @@ button {
 
 .cart svg {
   width: 25px;
+  position: relative;
 }
 
 .cart:hover svg {
   fill: gray;
 }
 
+.count-cart{
+  position: absolute;
+  top: 7px;
+  right: -7px; 
+  background-color: red;
+  border-radius: 50%;
+  /* display: none; */
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
 /* End cart icon styles */
 
 .mission {

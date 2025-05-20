@@ -37,3 +37,17 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const htmlStrings = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
+
+
+// Function to show the number of elements in the cart
+export function updateCartNum(){
+  const cart = getLocalStorage("so-cart") || [];
+  const number = cart.length;
+
+  const cartIcon = document.querySelector(".count-cart");
+
+  if (cartIcon){
+    cartIcon.textContent = number;
+    cartIcon.style.display = "inline-block";
+  }
+}

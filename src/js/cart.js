@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, updateCartNum } from "./utils.mjs";
 
 //get the products from the cart
 const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
@@ -39,3 +39,7 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+
+//The number of items in the cart (header)
+updateCartNum();
