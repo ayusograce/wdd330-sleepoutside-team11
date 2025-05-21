@@ -39,7 +39,7 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
 }
 
 
-export function renderWithTemplate(templateFn, parentElement, data, callback) {
+export function renderWithTemplate(templateFn, parentElement, callback, data) {
   parentElement.innerHTML = templateFn;
   if(callback) {
     callback(data);
@@ -58,7 +58,7 @@ export async function loadHeaderFooter(){
   const headerElement = document.querySelector("#main-header");
   const footerElement = document.querySelector("#main-footer");
   renderWithTemplate(footerTemplate, footerElement);
-  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(headerTemplate, headerElement, updateCartNum);
   }
 
 // Function to show the number of elements in the cart
