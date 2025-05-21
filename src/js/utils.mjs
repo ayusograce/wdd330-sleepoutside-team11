@@ -39,6 +39,28 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
 }
 
 
+export function renderWithTemplate(templateFn, parentElement, callback, data) {
+  parentElement.innerHTML = templateFn;
+  if(callback) {
+    callback(data);
+  }
+}
+
+export async function loadTemplate(path){
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+export async function loadHeaderFooter(){
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+  renderWithTemplate(footerTemplate, footerElement);
+  renderWithTemplate(headerTemplate, headerElement, updateCartNum);
+  }
+
 // Function to show the number of elements in the cart
 export function updateCartNum(){
   const cart = getLocalStorage("so-cart") || [];
