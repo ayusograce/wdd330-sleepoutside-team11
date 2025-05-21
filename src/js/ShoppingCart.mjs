@@ -1,35 +1,26 @@
-// import { renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage} from "./utils.mjs";
 
-// function productCardTemplate(product) {
-//   return `
-//     <li class="product-card">
-//       <a href="product_pages/index.html?product=${product.Id}">
-//         <img src="${product.Image}" alt="${product.Name}">
-//         <h2>${product.Brand.Name}</h2>
-//         <h3>${product.Name}</h3>
-//         <p class="product-card__price">$${product.FinalPrice}</p>
-//       </a>
-//       <a class="view-details-btn" href="product_pages/index.html?product=${product.Id}">View Details</a>
-//     </li>
-//   `;
-// }
+export function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart");
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+}
 
+function cartItemTemplate(item) {
+  const newItem = `<li class="cart-card divider">
+  <a href="#" class="cart-card__image">
+    <img
+      src="${item.Image}"
+      alt="${item.Name}"
+    />
+  </a>
+  <a href="#">
+    <h2 class="card__name">${item.Name}</h2>
+  </a>
+  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
+  <p class="cart-card__quantity">qty: 1</p>
+  <p class="cart-card__price">$${item.FinalPrice}</p>
+</li>`;
 
-// export default class ProductList {
-//   constructor(category, dataSource, listElement) {
-//     this.category = category;
-//     this.dataSource = dataSource;
-//     this.listElement = listElement;
-//   }
-
-//   async init() {
-//     const list = await this.dataSource.getData();
-//     console.log("Products loaded:", list);
-//     this.renderList(list);
-//   }
-
-//   renderList(list) {
-//     renderListWithTemplate(productCardTemplate, this.listElement, list, 'afterbegin', true);
-// }
-
-// }
+  return newItem;
+}
