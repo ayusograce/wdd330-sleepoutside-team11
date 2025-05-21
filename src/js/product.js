@@ -1,4 +1,4 @@
-import { getParam, updateCartNum} from "./utils.mjs";
+import { getParam, updateCartNum, loadHeaderFooter} from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
@@ -21,3 +21,6 @@ product.init();
 
 //The number of items in the cart (header)
 updateCartNum();
+
+// To call the header and footer partials
+loadHeaderFooter();

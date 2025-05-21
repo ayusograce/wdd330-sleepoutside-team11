@@ -1,4 +1,4 @@
-import { getLocalStorage, updateCartNum } from "./utils.mjs";
+import { getLocalStorage, updateCartNum, loadHeaderFooter } from "./utils.mjs";
 
 //get the products from the cart
 const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
@@ -43,3 +43,6 @@ renderCartContents();
 
 //The number of items in the cart (header)
 updateCartNum();
+
+// To call the header and footer partials
+loadHeaderFooter();

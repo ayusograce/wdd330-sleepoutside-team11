@@ -1,6 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import {updateCartNum } from "./utils.mjs";
+import {updateCartNum, loadHeaderFooter } from "./utils.mjs";
 
 console.log("⚡ main.js is running");
 
@@ -12,3 +12,6 @@ productList.init();
 
 //The number of items in the cart (header)
 updateCartNum();
+
+// To call the header and footer partials
+loadHeaderFooter();
