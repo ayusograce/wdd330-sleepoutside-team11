@@ -5,10 +5,13 @@ import {updateCartNum, loadHeaderFooter } from "./utils.mjs";
 console.log("⚡ main.js is running");
 
 const dataSource = new ProductData("tents");
-const element = document.querySelector(".product-list");
-const productList = new ProductList("Tents", dataSource, element);
+const listElement = document.querySelector('.product-list');
+if (listElement) {
+  const dataSource = new ProductData();
+  const myList = new ProductList('tents', dataSource, listElement);
+  myList.init();
+}
 
-productList.init();
 
 //The number of items in the cart (header)
 updateCartNum();
