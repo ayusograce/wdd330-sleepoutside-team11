@@ -1,4 +1,4 @@
-import {updateCartNum, loadHeaderFooter } from "./utils.mjs";
+import { updateCartNum, loadHeaderFooter } from "./utils.mjs";
 
 //The number of items in the cart (header)
 updateCartNum();
