@@ -1,3 +1,5 @@
+console.log("baseURL is", import.meta.env.VITE_SERVER_URL);
+
 import { loadHeaderFooter, getParam } from "../js/utils.mjs";
 import ProductData from "../js/ProductData.mjs";
 import ProductList from "../js/ProductList.mjs";
