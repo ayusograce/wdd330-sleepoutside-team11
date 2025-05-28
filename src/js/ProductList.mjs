@@ -9,7 +9,6 @@ function productCardTemplate(product) {
         <p>${product.NameWithoutBrand}</p>
         <p class="product-card__price">$${product.FinalPrice}</p>
       </a>
-      <a class="view-details-btn" href="/product_pages/index.html?product=${product.Id}">View Details</a>
     </li>
     `;
 }
