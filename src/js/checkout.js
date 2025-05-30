@@ -1,5 +1,8 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { updateCartNum, loadHeaderFooter } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
+
+//The number of items in the cart (header)
+updateCartNum();
 
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter();
