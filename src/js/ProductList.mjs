@@ -24,11 +24,19 @@ export default class ProductList {
   async init() {
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
-    document.querySelector(".title").textContent = this.category;
+    const titleElement = document.querySelector(".title");
+    if (titleElement) {
+      titleElement.textContent = this.category;
+    }
+
   }
 
-  renderList(list) {
-    renderListWithTemplate(productCardTemplate, this.listElement, list);
+    renderList(list) {
+    if (this.listElement) {
+      renderListWithTemplate(productCardTemplate, this.listElement, list);
+    } else {
+      console.warn("ProductList: listElement is null, skipping render.");
+    }
   }
 
 }

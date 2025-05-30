@@ -73,3 +73,27 @@ export function updateCartNum(){
     cartIcon.style.display = "inline-block";
   }
 }
+
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert-box");
+  alert.innerHTML = `<p>${message}</p>`;
+
+  const main = document.querySelector("main");
+  if (main) {
+    main.prepend(alert);
+  }
+
+  if (scroll) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  setTimeout(() => {
+    alert.remove();
+  }, 5000);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert-box");
+  alerts.forEach(alert => alert.remove());
+}
