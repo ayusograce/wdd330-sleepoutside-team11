@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, updateCartNum } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, updateCartNum, qs } from "./utils.mjs";
 
 export default class ProductDetails {
 
@@ -25,6 +25,15 @@ export default class ProductDetails {
     cartItems.push(this.product);
     setLocalStorage("so-cart", cartItems);
     updateCartNum();
+ 
+    //gr--task04 animate icon
+    const cartIcon = qs(".count-cart");
+    if (cartIcon) {
+      cartIcon.classList.add("cart-animate");
+      setTimeout(() => {
+        cartIcon.classList.remove("cart-animate");
+      }, 400);
+    }
   }
 
   renderProductDetails() {
