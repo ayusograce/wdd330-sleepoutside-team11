@@ -14,7 +14,16 @@
 
   <main class="divider">
     <h2>Review & Place your Order</h2>
-
+    <div class="space"></div>
+    <!-- ORDER SUMMARY -->
+    <div id="order-summary">
+      <h1>Order Summary</h1>
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <p>Tax (6%): <span id="tax">0.00</span></p>
+      <p>Shipping: <span id="shipping">0.00</span></p>
+      <p><strong>Total: <span id="total">0.00</span></strong></p>
+    </div>
+    
     <form id="checkout-form" name="checkout-form">
       <!-- CUSTOMER INFO -->
       <fieldset>
@@ -61,14 +70,8 @@
       <button id="checkoutSubmit" type="submit">Place Order</button>
     </form>
 
-    <!-- ORDER SUMMARY -->
-    <div id="order-summary">
-      <h1>Order Summary</h1>
-      <p>Subtotal: $<span id="subtotal">0.00</span></p>
-      <p>Tax (6%): <span id="tax">0.00</span></p>
-      <p>Shipping: <span id="shipping">0.00</span></p>
-      <p><strong>Total: <span id="total">0.00</span></strong></p>
-    </div>
+    
+    <div class="space"></div>
   </main>
 
   <footer id="main-footer"></footer>
