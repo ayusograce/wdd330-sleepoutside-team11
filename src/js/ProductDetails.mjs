@@ -22,7 +22,17 @@ export default class ProductDetails {
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(this.product);
+    
+    // check if the product is in the cart and update quantity of the product
+    const existingItem = cartItems.findIndex((item) => item.Id === this.product.Id);
+    if(existingItem > -1){
+      cartItems[existingItem].quantity = (cartItems[existingItem].quantity || 1) + 1;
+    } else {
+      const newProduct = {...this.product, quantity: 1};
+      cartItems.push(newProduct);
+    }
+
+    
     setLocalStorage("so-cart", cartItems);
     updateCartNum();
  
@@ -59,3 +69,6 @@ function productDetailsTemplate(product) {
 
   document.querySelector("#add-to-cart").dataset.id = product.Id;
 }
+
+
+
