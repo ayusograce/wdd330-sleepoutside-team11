@@ -137,6 +137,7 @@ p {
 }
 
 button {
+  margin-top: 1rem;
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -145,10 +146,35 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  border-radius: 999px;
+}
+
+button:hover{
+  background-color: #2c3e50;
 }
 
 .divider {
   border-bottom: 2px solid var(--primary-color);
+}
+
+.button{
+  background-color: #d87721;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.button:hover{
+  background-color: #2c3e50;
+}
+
+.space{
+  padding: 1rem;
 }
 
 /* End utility classes */
@@ -309,6 +335,62 @@ button {
 /* gr--Total$ in Cart  */
 .hide {
   display: none;
+}
+
+/* FORM STYLING */
+#checkout-form{
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+fieldset{
+  padding: 1rem;
+  justify-items: center;
+}
+
+legend{
+  font-weight: bold;
+  font-size: larger;
+}
+
+form label {
+    display: block;
+    font-size: 1rem;
+    color: var(--dark-grey);
+    padding-top: .2rem;
+    font-weight: bold;
+}
+
+input[type=text] {
+    display: block;
+    margin: .1rem 0 1rem 0 ;
+    padding: .3rem;
+    border: 1px solid #2c3e50;
+    border-radius: 4px;
+    border-left-width: 5px;
+    border-left-color: red;
+    font-size: 1rem;
+    color: #3D405B;
+    width: 250px;
+}
+
+input:required {border-left-color: #d70000;}
+input:focus {border-left-color: black; outline:none;}
+input:required:valid{border-left-color: green;}
+
+#checkoutSubmit{
+  margin-top: 1rem;
+}
+
+#order-summary{
+  text-align: center;
+  padding: 1rem;
+  border-top: gray dotted 2px;
+  border-bottom: gray dotted 2px;
+  /* margin-bottom: 1rem; */
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 500px) {
