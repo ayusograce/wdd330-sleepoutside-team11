@@ -64,7 +64,7 @@ export async function loadHeaderFooter(){
 // Function to show the number of elements in the cart
 export function updateCartNum(){
   const cart = getLocalStorage("so-cart") || [];
-  const number = cart.length;
+  const number = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
 
   const cartIcon = document.querySelector(".count-cart");
 

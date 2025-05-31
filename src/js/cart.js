@@ -16,7 +16,12 @@ if (cart.length > 0) {
   renderCartContents();
 
   // Calculate and display the total cart value
-  const total = cart.reduce((sum, item) => sum + item.FinalPrice, 0);
+  // const total = cart.reduce((sum, item) => sum + item.FinalPrice * item.quantity, 0);
+  const total = cart.reduce((sum, item) => {
+    const quantity = Number(item.quantity) || 1;
+    const price = Number(item.FinalPrice) || 0;
+    return sum + price * quantity;
+  }, 0);
   document.querySelector(".cart-total").textContent =
     `Total: $${total.toFixed(2)}`;
 } else {

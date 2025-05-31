@@ -7,6 +7,9 @@ export function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
+  const quantity = item.quantity || 1;
+  const totalPrice = (item.FinalPrice * quantity).toFixed(2);
+
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -18,27 +21,29 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__quantity">qty: ${quantity}</p>
+  <p class="cart-card__price">$${totalPrice}</p>
   <button class="remove" aria-label="Delete product" data-id="${item.Id}">×</button>
 </li>`;
 
   return newItem;
 }
 
-// ga--function to display the result and show a message when the cart is empty
-// this code was in the cart.js, but it is better if it goes here and is imported there
-// I haven't deleted the code in the other file because that was not my card to do, but it
-// is a suggestion that I make (delete that other code and export and import this function)
-function totalOrEmpty(){
+// function to display the result and show a message when the cart is empty
+export function totalOrEmpty(){
   const cart = getLocalStorage("so-cart") || [];
   if (cart.length > 0) {
     document.querySelector('.cart-footer').classList.remove('hide');
     renderCartContents();
 
       // Calculate and display the total cart value
-    const total = cart.reduce((sum, item) => sum + item.FinalPrice, 0);
+    const total = cart.reduce((sum, item) => {
+      const quantity = Number(item.quantity) || 1;
+      const price = Number(item.FinalPrice) || 0;
+      return sum + price * quantity;
+    }, 0);
     document.querySelector('.cart-total').textContent = `Total: $${total.toFixed(2)}`;
+
   } else {
 
       // If the cart is empty, show message
