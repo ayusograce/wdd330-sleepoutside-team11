@@ -13,3 +13,17 @@ updateCartNum();
 
 // To call the header and footer partials
 loadHeaderFooter();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('registerModal');
+  const closeButton = modal.querySelector('.close-button');
+
+  if (!localStorage.getItem('hasSeenRegisterModal')) {
+    modal.classList.remove('hidden');
+    localStorage.setItem('hasSeenRegisterModal', 'true');
+  }
+
+  closeButton.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+});
