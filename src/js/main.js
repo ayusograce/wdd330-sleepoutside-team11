@@ -26,4 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
   closeButton.addEventListener('click', () => {
     modal.classList.add('hidden');
   });
+
+  // Newsletter form handling
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('email');
+      const email = emailInput.value.trim();
+
+      if(email === ""){
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      alert(`Thanks for subscribing, ${email}!`);
+      newsletterForm.reset();
+    });
+  }
 });
